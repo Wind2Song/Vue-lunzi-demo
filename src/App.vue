@@ -3,8 +3,7 @@
 </template>
 
 <script lang="ts">
-import { ref } from '@vue/reactivity'
-import { provide } from '@vue/runtime-core'
+import { provide, ref } from 'vue'
 export default {
   name: 'App',
   setup(){
