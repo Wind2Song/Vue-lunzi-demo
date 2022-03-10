@@ -8,8 +8,12 @@ import { provide } from '@vue/runtime-core'
 export default {
   name: 'App',
   setup(){
-    const asideVisible = ref(true);
-    provide('asideVisible', asideVisible)
+    const asideVisible = ref(false);
+    console.log(asideVisible.value)
+      provide('asideVisible', asideVisible)
+    return {
+      asideVisible
+    };
   }
 }
 </script>

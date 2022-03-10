@@ -2,7 +2,7 @@
     <div>
         <Topnav />
         <div class="content">
-            <aside v-if="false">
+            <aside>
                 <h1>组件列表</h1>
                 <ol>
                     <li>
@@ -15,11 +15,13 @@
                         <router-link to="/Doc/dialog">Dialog</router-link>
                     </li>
                     <li>
-                        <router-link to="/Doc/>tabs">Tabs</router-link>
+                        <router-link to="/Doc/tabs">Tabs</router-link>
                     </li>
                 </ol>
             </aside>
-            <main>主内容</main>
+            <main>
+             <router-view />
+            </main>
         </div>        
     </div>
 </template>
@@ -28,10 +30,10 @@ import { inject, Ref } from '@vue/runtime-core'
 import Topnav from "../components/Topnav.vue"
 export default {
   components:{ Topnav },
-  setup(){
-    const asideVisible = inject<Ref<boolean>>('asideVisible')
-    return {asideVisible}
-  }    
+  // setup(){
+  //   const asideVisible = inject<Ref<boolean>>('asideVisible')
+  //   return {asideVisible}
+  // }    
 }
 </script>
 <style lang="scss" scoped>
