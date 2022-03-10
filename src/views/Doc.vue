@@ -34,7 +34,6 @@ aside{
   background: lightblue;
   width: 150px;
   padding: 16px;
-  position: fixed;
   top: 0;
   left: 0;
   > h2 {
