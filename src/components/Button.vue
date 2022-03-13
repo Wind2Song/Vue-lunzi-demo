@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Switch 文档</h1>
+        <h1>Button 文档</h1>
         <p>有很多内容</p>
         <p>有很多内容</p>
         <p>有很多内容</p>
