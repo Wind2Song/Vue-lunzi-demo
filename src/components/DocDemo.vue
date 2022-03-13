@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>目前为空</p>
+        <p>请点击以上按钮查看组件</p>
     </div>
 </template>
