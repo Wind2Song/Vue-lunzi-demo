@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Switch />
+        <Switch :value="y" @input="y = $event" />
         <h2>功能说明</h2>
         <p>
             Switch value="true" // 字符串true 表示“开"
@@ -10,7 +10,12 @@
 </template>
 <script lang="ts">
 import Switch from '../libs/Switch.vue'
+import {ref} from 'vue'
 export default{
-    components: {Switch}
+    components: {Switch},
+    setup(){
+        const y = ref(false)
+        return {y}
+    }
 }
 </script>
