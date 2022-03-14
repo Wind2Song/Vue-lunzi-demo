@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Switch :value="y" @input="y = $event" />
+        <Switch v-model:value="y"/>
         <h2>功能说明</h2>
         <p>
             Switch value="true" // 字符串true 表示“开"
