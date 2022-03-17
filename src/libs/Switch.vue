@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggle" :class="{checked:value}"><span></span></button>
+        <button class="lunzi-switch" @click="toggle" :class="{checked:value}"><span></span></button>
     </div>
 </template>
 <script lang="ts">
@@ -18,10 +18,10 @@ export default{
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button{
+  .lunzi-switch{
     height: $h;
     width: $h*2;
     border: none;
