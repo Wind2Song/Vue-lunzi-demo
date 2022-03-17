@@ -7,7 +7,7 @@ import Button from '../libs/Button.vue'
 export default{
     components: {Button},
     setup(){
-        const onClick = console.log('hi')
+        const onClick = ()=>{console.log('hi')}
         return {onClick}
     }
 }
