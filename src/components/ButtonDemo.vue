@@ -1,5 +1,8 @@
 <template>
-    <Button @click="onClick" @focus="onClick" @mouseover="onClick">你好</Button>
+    <Button>你好</Button>
+    <Button theme="">你好</Button>
+    <Button theme="">你好</Button>
+    <Button theme="text">你好</Button>
 </template>
 
 <script lang="ts">

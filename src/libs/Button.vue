@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <button v-bind="$attrs">
-            <slot />
-        </button>
-    </div>
+    <button class="lunzi-button" 
+     :class="`theme-${theme}`">
+        <slot />
+    </button>
 </template>
 
 <script lang="ts">
 
 export default{
-    inheritAttrs: false //阻止div继承
+    props:{
+        theme:{type:String,default:'button'}
+    }
 }
 </script>
 <style lang="scss">
