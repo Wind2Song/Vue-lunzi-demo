@@ -73,17 +73,15 @@ $radius: 4px;
       background: darken(white, 5%);;
     }
   }
-  &.lunzi-theme-button{
-    &.lunzi-size-big{
-      font-size: 24px;
-      height: 48px;
-      padding: 0 16px
-    }
-    &.lunzi-size-small{
+  &.lunzi-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.lunzi-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
-    }
   }
 }
 
