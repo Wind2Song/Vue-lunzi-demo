@@ -1,57 +1,14 @@
 <template>
-    <div>
-        <h1>Button 文档</h1>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-        <p>有很多内容</p>
-    </div>
+    <Button @click="onClick" @focus="onClick" @mouseover="onClick">你好</Button>
 </template>
+
+<script lang="ts">
+import Button from '../libs/Button.vue'
+export default{
+    components: {Button},
+    setup(){
+        const onClick = console.log('hi')
+        return {onClick}
+    }
+}
+</script>
