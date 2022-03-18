@@ -1,9 +1,9 @@
 <template>
   <template v-if="visible">            
-    <div class="lunzi-dialog-overlay"></div>
+    <div class="lunzi-dialog-overlay" @click="onClickOverlay"></div>
     <div class="lunzi-dialog-wrapper">
       <div class="lunzi-dialog">
-        <header>标题 <span class="lunzi-dialog-close"></span></header>
+        <header>标题 <span @click="close" class="lunzi-dialog-close"></span></header>
         <main>
             <p>内容</p>
         </main>
@@ -21,7 +21,17 @@ import Button from './Button.vue'
 export default {
     components:{Button},
     props:{
-        visible:{type:Boolean,default:false}
+        visible:{type:Boolean,default:false},
+        onClickOverlay:{type:Boolean,default:false}
+    },
+    setup(props,context){
+      const close = ()=>{
+        context.emit('update:visible', false)
+      }
+      const onClickOverlay =()=>{
+        if(props.onClickOverlay){close()}
+      }
+      return {close,onClickOverlay}
     }
 }
 </script>

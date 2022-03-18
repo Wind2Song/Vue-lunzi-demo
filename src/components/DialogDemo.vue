@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Dialog 文档</h1>
-        <Dialog :visible="x"></Dialog>
+        <Dialog v-model:visible="x" :onClickOverlay="true"></Dialog>
         <Button @click="toggle">toggle</Button>
     </div>
 </template>
