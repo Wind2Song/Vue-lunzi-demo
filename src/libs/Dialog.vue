@@ -1,23 +1,28 @@
 <template>
+  <template v-if="visible">            
     <div class="lunzi-dialog-overlay"></div>
     <div class="lunzi-dialog-wrapper">
       <div class="lunzi-dialog">
-        <header>标题</header>
+        <header>标题 <span class="lunzi-dialog-close"></span></header>
         <main>
             <p>内容</p>
         </main>
         <footer>
-            <Button level="big">OK</Button>
+            <Button level="main">OK</Button>
             <Button>Cancel</Button>
         </footer>
       </div>
     </div>
+  </template>
 </template>
 
 <script lang="ts">
 import Button from './Button.vue'
 export default {
-    components:{Button}
+    components:{Button},
+    props:{
+        visible:{type:Boolean,default:false}
+    }
 }
 </script>
 <style lang="scss">
