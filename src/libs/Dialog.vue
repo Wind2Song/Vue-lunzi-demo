@@ -6,10 +6,12 @@
         <header>标题 <span @click="close" class="lunzi-dialog-close"></span></header>
         <main>
             <p>内容</p>
+            <p>内容</p>
+            <p>内容</p>
         </main>
         <footer>
-            <Button level="main">OK</Button>
-            <Button>Cancel</Button>
+            <Button @click="Ok" level="main">OK</Button>
+            <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -22,7 +24,9 @@ export default {
     components:{Button},
     props:{
         visible:{type:Boolean,default:false},
-        onClickOverlay:{type:Boolean,default:false}
+        onClickOverlay:{type:Boolean,default:false},
+        ok:{type:Function},
+        cancel:{type:Function}
     },
     setup(props,context){
       const close = ()=>{
@@ -31,7 +35,15 @@ export default {
       const onClickOverlay =()=>{
         if(props.onClickOverlay){close()}
       }
-      return {close,onClickOverlay}
+      const Ok = () =>{
+        if(props.ok && props.ok()){
+          close()
+        }
+      }
+      const cancel =()=>{
+        close()
+      }
+      return {close,onClickOverlay,Ok,cancel}
     }
 }
 </script>

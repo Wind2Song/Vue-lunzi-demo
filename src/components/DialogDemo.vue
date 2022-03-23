@@ -1,7 +1,8 @@
 <template>
     <div>
         <h1>Dialog 文档</h1>
-        <Dialog v-model:visible="x" :onClickOverlay="true"></Dialog>
+        <Dialog v-model:visible="x" :onClickOverlay="true"
+        :ok="fn1" :cancel="fn2"></Dialog>
         <Button @click="toggle">toggle</Button>
     </div>
 </template>
@@ -17,7 +18,13 @@ setup(){
   const toggle = ()=>{
     x.value = !x.value
   }
-  return {x,toggle}
+  const fn1 = ()=>{
+    return true
+  }
+  const fn2 = ()=>{
+    console.log('2')
+  }
+  return {x,toggle,fn1,fn2}
   }
 }
 </script>
