@@ -2,7 +2,9 @@
     <div>
         <h1>Dialog 文档</h1>
         <Dialog v-model:visible="x" :onClickOverlay="true"
-        :ok="fn1" :cancel="fn2"></Dialog>
+        :ok="fn1" :cancel="fn2" :title="'123'">
+        <div>你好</div>
+        </Dialog>
         <Button @click="toggle">toggle</Button>
     </div>
 </template>
@@ -24,7 +26,13 @@ setup(){
   const fn2 = ()=>{
     console.log('2')
   }
-  return {x,toggle,fn1,fn2}
+  const showDialog = ()=>{
+    // openDialog({
+    //   title:'标题',
+    //   content:'内容'
+    // })
+  }
+  return {x,toggle,fn1,fn2,showDialog}
   }
 }
 </script>
