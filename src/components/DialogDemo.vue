@@ -2,10 +2,16 @@
     <div>
         <h1>Dialog 文档</h1>
         <Dialog v-model:visible="x" :onClickOverlay="true"
-        :ok="fn1" :cancel="fn2" :title="'123'">
-        <div>你好</div>
+        :ok="fn1" :cancel="fn2">
+          <template v-slot:content>
+            内容
+          </template>
+          <template v-slot:title>
+            标题
+          </template>
         </Dialog>
         <Button @click="toggle">toggle</Button>
+        <Button @click="showDialog">show</Button>
     </div>
 </template>
 
@@ -13,6 +19,7 @@
 import Dialog from '../libs/Dialog.vue'
 import Button from '../libs/Button.vue'
 import { ref } from 'vue'
+import {openDialog} from '../libs/openDialog'
 export default{
   components:{Dialog,Button},
 setup(){
@@ -27,10 +34,10 @@ setup(){
     console.log('2')
   }
   const showDialog = ()=>{
-    // openDialog({
-    //   title:'标题',
-    //   content:'内容'
-    // })
+    openDialog({
+      title: '标题',
+      content: '内容'
+    })
   }
   return {x,toggle,fn1,fn2,showDialog}
   }

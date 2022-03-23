@@ -4,10 +4,11 @@
     <div class="lunzi-dialog-wrapper">
       <div class="lunzi-dialog">
         <header>
-          {{title}}
-          <span @click="close" class="lunzi-dialog-close"></span></header>
+          <slot name="title"/>
+          <span @click="close" class="lunzi-dialog-close"></span>
+        </header>
         <main>
-            <slot />
+            <slot name="content"/>    
         </main>
         <footer>
             <Button @click="Ok" level="main">OK</Button>
@@ -23,7 +24,6 @@ import Button from './Button.vue'
 export default {
     components:{Button},
     props:{
-        title:{type:String,default:'我是标题'},
         visible:{type:Boolean,default:false},
         onClickOverlay:{type:Boolean,default:false},
         ok:{type:Function},
