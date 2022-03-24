@@ -34,7 +34,9 @@ export default {
         context.emit('update:visible', false)
       }
       const onClickOverlay =()=>{
-        if(props.onClickOverlay){close()}
+        if(props.onClickOverlay){
+          close()
+        }
       }
       const Ok = () =>{
         if(props.ok && props.ok()){
