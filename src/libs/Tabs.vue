@@ -1,10 +1,24 @@
 <template>
     <div>
-        Tabs组件
+        <div v-for="(t,index) in titles" :key="index"></div>
+        <component v-for="(c,index) in defaults" :key="index" :is="c" />
     </div>
 </template>
 <script lang="ts">
+import Tab from './Tab.vue'
 export default {
-    
+    setup(props,context){
+        const defaults = context.slots.default() 
+        // console.log({...context.slots.default()})
+        defaults.forEach((tag)=>{
+            if(tag.type !== Tab){
+                throw new Error('子标签必须是Tab')
+            }
+        })
+        const titles = defaults.forEach((tag)=>{
+            return tag.props.title
+        })
+        return {defaults,titles}
+    }
 }
 </script>
