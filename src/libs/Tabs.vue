@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(t,index) in titles" :key="index"></div>
+        <div v-for="(t,index) in titles" :key="index">{{t}}</div>
         <component v-for="(c,index) in defaults" :key="index" :is="c" />
     </div>
 </template>
@@ -15,7 +15,7 @@ export default {
                 throw new Error('子标签必须是Tab')
             }
         })
-        const titles = defaults.forEach((tag)=>{
+        const titles = defaults.map((tag)=>{
             return tag.props.title
         })
         return {defaults,titles}
