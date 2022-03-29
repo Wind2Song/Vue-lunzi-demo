@@ -1,6 +1,6 @@
 <template>
   <div class="lunzi-tabs">
-    <div class="lunzi-tabs-nav">
+    <div class="lunzi-tabs-nav" ref="container">
       <div class="lunzi-tabs-nav-item" v-for="(t,i) in titles" 
       :ref="(el) => { if (el) navItems[i] = el }" 
       @click="select(t)" :class="{selected: t=== selected}" :key="i" 
@@ -17,7 +17,7 @@
 <script lang="ts">
 import Tab from './Tab.vue'
 import {
-  computed, onMounted, ref
+  computed, onMounted, onUpdated, ref
 } from 'vue'
 export default {
   props: {
@@ -28,14 +28,23 @@ export default {
   setup(props, context) {
     const navItems = ref < HTMLDivElement[] > ([])
     const indicator = ref <HTMLDivElement>(null)
-    onMounted(()=>{
+    const container = ref<HTMLDivElement>(null)
+    
+    const x = ()=>{
       const divs = navItems.value
       // console.log(navItems.value)
       const result = divs.filter(div => div.classList.contains('selected'))[0]
-      console.log(result)
+      // console.log(result)
       const {width} = result.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
-    })
+
+      const {left:left1} = container.value.getBoundingClientRect()
+      const {left:left2} = result.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'      
+    }
+    onMounted(x)
+    onUpdated(x)
     const defaults = context.slots.default()
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -60,7 +69,8 @@ export default {
       current,
       select,
       navItems,
-      indicator
+      indicator,
+      container
     }
   }
 }
@@ -92,7 +102,7 @@ $border-color: #d9d9d9;
       background: $blue;
       left: 0;
       bottom: -1px;
-      width: 100px;
+      transition: all 250ms;
     }
   }
   &-content {
