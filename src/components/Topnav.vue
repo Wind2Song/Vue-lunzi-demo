@@ -9,12 +9,18 @@
             <li>菜单1</li>
             <li>菜单2</li>
         </ul>
-        <span class="toggleAside" @click="toggleMenu"></span>
+        <span v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu"></span>
     </div>    
 </template>
 <script lang="ts">
 import { inject, Ref } from 'vue'
 export default {
+  props:{
+    toggleMenuButtonVisible:{
+      type:String,
+      default:false
+    }
+  },
   setup(){
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleMenu = ()=>{
