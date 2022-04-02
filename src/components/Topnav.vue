@@ -2,8 +2,9 @@
     <div class="topnav">
         <router-link to="/" class="logo">
           <svg class="icon">
-            <use xlink:href="#icon-king"></use>
+            <use xlink:href="#icon-god"></use>
           </svg>
+          <span class="title">源UI</span>
         </router-link>
         <ul class="menu">
             <li>菜单1</li>
@@ -45,9 +46,18 @@ $color: #007974;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
     >svg {
       width: 32px;
       height: 32px;
+    }
+    .title{
+      padding: 4px 4px;
+      
+    }
+    &:hover{
+        text-decoration: none;
     }
   }
   > .menu {
