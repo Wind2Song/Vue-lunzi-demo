@@ -6,18 +6,19 @@
     <pre><code>npm install king-ui</code></pre>
     <p>或</p>
     <pre><code>yarn add king-ui</code></pre>
-  
-    <p>
-      下一节：<a href="#/doc/get-started">开始使用</a>
-    </p>
+
+    <p>下一节：<a href="#/doc/get-started">开始使用</a></p>
   </article>
 </template>
 
 <script lang="js">
-// import md from '../markdown/intro.md'
-// export default{
-//   data(){
-//     return {md}
+// import marked from 'marked'
+// import md from '../markdown/intro.md';
+// export default {
+//   data() {
+//     return {
+//       md
+//     }
 //   }
 // }
 </script>
