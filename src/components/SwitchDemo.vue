@@ -43,8 +43,9 @@
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
+    
     <div class="demo-code">
-      <pre>
+      <pre id="htmlCode">
 &lt;template&gt;
 &lt;Switch v-model:value="bool" disabled /&gt;
 &lt;/template&gt;
@@ -76,22 +77,33 @@ import Switch from '../libs/Switch.vue'
 import Button from '../libs/Button.vue'
 import Switch1Demo from './Switch1.demo.vue'
 import Switch2Demo from './Switch2.demo.vue'
+import Letter from '../texts/Switch.txt'
 import {ref} from 'vue'
+import 'prismjs'
+const Prism = (window as any).Prism
+console.log(Switch1Demo)
 export default{
+  data: function () {
+      return {
+        letter: Letter
+      }
+  },
     components: {
         Switch,
         Button,
         Switch1Demo,
         Switch2Demo
+        
     },
     setup(){
         const bool = ref(false)
-        return {bool}
+        return {bool,Prism}
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
 $border-color: #d9d9d9;
 .demo {
   border: 1px solid $border-color;
@@ -118,4 +130,7 @@ $border-color: #d9d9d9;
     }
   }
 }
+</style>
+<style lang="scss" scoped>
+  @import 'prismjs/themes/prism.css';
 </style>
