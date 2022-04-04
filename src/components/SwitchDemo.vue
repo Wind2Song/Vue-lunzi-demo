@@ -10,29 +10,7 @@
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>
-&lt;template&gt;
-  &lt;Switch v-model:value="bool" /&gt;
-&lt;/template&gt;
-
-&lt;script lang="ts"&gt;
-  import Switch from '../libs/Switch.vue'
-  import {
-    ref
-  } from 'vue'
-  export default {
-    components: {
-      Switch,
-    },
-    setup() {
-      const bool = ref(false)
-      return {
-        bool
-      }
-    }
-  }
-&lt;/script&gt;
-      </pre>
+      <pre>{{Switch1Demo.__sourceCode}}</pre>
     </div>
   </div>
   <div class="demo">
@@ -45,29 +23,7 @@
     </div>
     
     <div class="demo-code">
-      <pre id="htmlCode">
-&lt;template&gt;
-&lt;Switch v-model:value="bool" disabled /&gt;
-&lt;/template&gt;
-
-&lt;script lang="ts"&gt;
-import Switch from '../libs/Switch.vue'
-import {
-  ref
-} from 'vue'
-export default {
-  components: {
-    Switch,
-  },
-  setup() {
-    const bool = ref(false)
-    return {
-      bool
-    }
-  }
-}
-&lt;/script&gt;
-      </pre>
+      <pre>{{Switch2Demo.__sourceCode}}</pre>
     </div>
   </div>
 </div>
@@ -75,29 +31,23 @@ export default {
 <script lang="ts">
 import Switch from '../libs/Switch.vue'
 import Button from '../libs/Button.vue'
-import Switch1Demo from './Switch1.demo.vue'
-import Switch2Demo from './Switch2.demo.vue'
-import Letter from '../texts/Switch.txt'
+import Switch1Demo from '../libs/Switch1.demo.vue'
+import Switch2Demo from '../libs/Switch2.demo.vue'
+console.log(Switch1Demo.__sourceCode)
 import {ref} from 'vue'
-import 'prismjs'
-const Prism = (window as any).Prism
+// import 'prismjs'
+// const Prism = (window as any).Prism
 console.log(Switch1Demo)
 export default{
-  data: function () {
-      return {
-        letter: Letter
-      }
-  },
     components: {
         Switch,
         Button,
         Switch1Demo,
         Switch2Demo
-        
     },
     setup(){
         const bool = ref(false)
-        return {bool,Prism}
+        return {bool,Switch1Demo,Switch2Demo}
     }
 }
 </script>
